@@ -24,37 +24,30 @@ var Auto = {
     name: "Prov Car Rentals"
 }
 
-var renterNames = {
-    renters: [ ], 
-    addRenter: function(rName,name ) {
-        {
-       this.renters.push({
-           name: rName, 
-           cartype: name
-       });
-        }
-     }//function collects renter name and type and puts it in renter's array// 
-   }
 
 
 
-function displayDetails(value) {
-    var value = document.getElementById("car").value //giving value of car they picked and passing it through the function// 
-    document.getElementById("price").innerHTML = Auto.cars[value].price;
-    document.getElementById("available").innerHTML = Auto.cars[value].available;
+function displayDetails(car) {
+    document.getElementById("price").innerHTML = Auto.cars[car].price;
+    document.getElementById("available").innerHTML = Auto.cars[car].available;
     
 }
 
 for (var i= 0; i < Auto.cars.length; i++)  {
     console.log("start")
-    var dropbtn = document.createElement("OPTION");
+    var dropbtn = document.createElement("INPUT");
+    dropbtn.setAttribute("type", "radio");
     dropbtn.setAttribute("name","carType");
     dropbtn.setAttribute("value",i);
     dropbtn.setAttribute("id", "car" + i);
     dropbtn.setAttribute("onclick", "displayDetails(" + i +")");
-    dropbtn.innerHTML=Auto.cars[i].name;  //changing innerhtml of object to get name of car// 
-    document.getElementById("car").appendChild(dropbtn)   //told option tags to go into empty select, gave the empty tag id of car// 
+
     
+    var dropLbl = document.createElement("LABEL");
+    dropLbl.innerHTML = Auto.cars[i].name; 
+    document.getElementById("carSection").appendChild(dropbtn);
+    document.getElementById("carSection").appendChild(dropLbl);
+    console.log("stop");
 }
 
 document.getElementById("reservationForm").onsubmit = function(event) {
