@@ -1,40 +1,24 @@
 <!DOCTYPE html>
+<html>
 <head>
-    <title>Document</title>
+	<title>Providence Car Rental</title>
 </head>
 <body>
-    
-    <h1>Car Rental Reservation</h1>
-    <h2 id="CarRentalPlaceName"></h2>
-    <form id="reservationForm">
-        <div id="carSection">
-            <label>Car Type</label><br>
-         
-            
-        </div>
-        <div id="carInfo">
-            <h2>Car Info</h2>
-            <p>Available: <span id="available" ></span></p>
-            <p>Price: <span id="price"></span></p>
-        </div>
-        
-    <select id= "car" onchange="displayDetails(value)">  <!--onchange runs function based on what's picked -->
-        
-        
-    </select>
-     <br><br>
-     
-
-         <h2>Name</h2>
-     <input id="nform" type="text" name="name">
-      
-        
-        <div id="confirmationSection">
-            <input type="checkbox" name="confirm" id="confirmation"><label>I agree to Terms and Conditions</label>
-        </div>
-        <br>
-        <button type="submit">Submit</button>
-    </form>
-    <script src="objects.js"></script>
+	<h1>Providence Car Rentals</h1>
+	<h2>Car Avaliability and Rental Form and</h2>
+	<h3>Car Info</h3>
+	<p>Cars Available: <span id="available"></span></p>
+	<p>Price: $ <span id="price"></span></p>
+	<form id="renterinfo" name="renterinfo">
+		<select id="carSelection" onchange="displayDetails(value)">
+		</select><br>
+		<br>
+		Name: <input id="rname" name="name" type="text" value=""><br>
+		<br>
+		<button onclick="carRent()" type="button">Rent Car</button>
+	</form><br>
+	<br>
+	<script src="objects.js">
+	</script>
 </body>
 </html>

@@ -1,5 +1,6 @@
 var Auto = {
-    cars: [
+    name:"Prov Car Rentals",
+    cars:[
         {
             name: "economy car",
             price: "$150.00",
@@ -19,12 +20,20 @@ var Auto = {
             name: "Stretch Limo",
             price: "$600.00",
             available: 2
-        },
-    ],
-    name: "Prov Car Rentals"
-}
+        }
+        ],
 
+  carAvail: function(i) {
+    return this.cars[i].quantity - this.cars[i].booked;
+  },	
+  bookCars: function(i) {
+    this.cars[i].booked++;
+  },
 
+  totalRev: function(carType){
+    this.revenue=this.cars[carType].price+this.revenue;
+  }
+};
 
 
 function displayDetails(car) {
